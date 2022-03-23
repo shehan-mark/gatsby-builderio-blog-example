@@ -9,18 +9,9 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-top-layout',
-    {
-      resolve: 'gatsby-plugin-material-ui',
-      // If you want to use styled components you should change the injection order.
-      options: {
-        // stylesProvider: {
-        //   injectFirst: true,
-        // },
-      }
-    },
     // If you want to use styled components you should add the plugin here.
     // 'gatsby-plugin-styled-components',
-    'gatsby-plugin-react-helmet',
+    // 'gatsby-plugin-react-helmet',
     {
       resolve: '@builder.io/gatsby',
       options: {
@@ -28,7 +19,8 @@ module.exports = {
         templates: {
           // Render every `landingPage` model as a new page using the 
           // src/templates/LandingPage.jsx template based on the URL provided in Builder.io
-          landingPage: path.resolve('src/templates/LandingPage.jsx')
+          blogPage: path.resolve('src/templates/BlogPage.jsx'),
+          page: path.resolve('src/templates/Page.jsx'),
         }
       }
     }

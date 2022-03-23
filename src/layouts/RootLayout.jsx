@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core/styles';
+// import CssBaseline from '@material-ui/core/CssBaseline';
+// import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
 
 export default function RootLayout(props) {
@@ -18,11 +18,11 @@ export default function RootLayout(props) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       </Helmet>
-      <ThemeProvider theme={theme}>
+      {props.children}
+      {/* <ThemeProvider theme={theme}> */}
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        {props.children}
-      </ThemeProvider>
+        {/* <CssBaseline /> */}
+      {/* </ThemeProvider> */}
     </React.Fragment>
   );
 }

@@ -8,43 +8,42 @@ const defaultDescription = 'Edit this in your entry for a better SEO';
 
 const defaultTitle = 'Builder: Drag and Drop Page Building for Any Site';
 
-function LandingPageTemplate({ data }) {
+function PageTemplate({ data }) {
   const models = data?.allBuilderModels;
-  const landingPage = models.landingPage[0]?.content;
+  const pageContent = models.page[0]?.content;
+
+  console.log('PageTemplate::Content', pageContent);
 
   return (
     <>
       <Helmet>
-        <title>{(landingPage && landingPage.data.title) || defaultTitle}</title>
+        <title>{(pageContent && pageContent.data.title) || defaultTitle}</title>
         <meta
           name="description"
           content={
-            (landingPage && landingPage.data.description) || defaultDescription
+            (pageContent && pageContent.data.description) || defaultDescription
           }
         />
       </Helmet>
+      <h1>Page Template</h1>
       {/** name of the model is landing page, change it if you decided to build*/}
       <BuilderComponent
         renderLink={Link}
-        name="landing-page"
-        content={landingPage}
+        name="page"
+        content={pageContent}
       />
     </>
   );
 }
 
-export default LandingPageTemplate;
+export default PageTemplate;
 
-export const landingPageQuery = graphql`
-  query($path: String!) {
-    allBuilderModels {
-      landingPage(
-        target: { urlPath: $path }
-        limit: 1
-        options: { cachebust: true }
-      ) {
-        content
-      }
+export const PageTemplateQuery = graphql`
+query ($path: String!) {
+  allBuilderModels {
+    page(target: { urlPath: $path }, options: { cachebust: true }) {
+      content
     }
   }
-`;
+}
+`
