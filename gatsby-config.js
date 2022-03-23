@@ -21,6 +21,7 @@ module.exports = {
           // src/templates/LandingPage.jsx template based on the URL provided in Builder.io
           blogPage: path.resolve('src/templates/BlogPage.jsx'),
           page: path.resolve('src/templates/Page.jsx'),
+          articlePage: path.resolve('src/templates/Article.jsx'),
         }
       }
     }
